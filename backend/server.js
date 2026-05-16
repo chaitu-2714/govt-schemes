@@ -25,6 +25,10 @@ app.use('/api/schemes', schemeRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/eligibility', eligibilityRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

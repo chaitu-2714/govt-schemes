@@ -16,7 +16,7 @@ const SchemesPage = ({ category }) => {
   const fetchSchemes = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/schemes?category=${encodeURIComponent(category)}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/schemes?category=${encodeURIComponent(category)}`);
       setSchemes(res.data);
     } catch (err) {
       console.error(err);
